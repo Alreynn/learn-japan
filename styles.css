@@ -1,0 +1,86 @@
+@keyframes loading {
+    0% {
+        rotate: 0deg;
+    }
+    100% {
+        rotate: 360deg;
+    }
+}
+
+@media (max-width: 640px) {
+    .middle {
+        width: 50%;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #cdcbf0;
+}
+header {
+    background-color: #c8c8ee;
+    padding: 16px;
+}
+a {
+    color: #000;
+    text-decoration: none;
+}
+.middle {
+    background-color: #e9e8ef;
+    border-radius: 8px;
+    box-shadow: 0 3px 5px gray;
+    padding: 5%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+h2 {
+    font-size: 2em;
+    text-align: center;
+}
+button {
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid #000;
+    border-radius: 4px;
+    margin-top: 1em;
+    font-size: 1em;
+    padding: 12px;
+}
+button:active {
+    background-color: #ccc;
+}
+#chooseRomaji button {
+    transition: all 0.5s;
+}
+#chooseRomaji button.isTrue {
+    background-color: rgb(30,180,30);
+    color: #fff;
+}
+#chooseRomaji button.isWrong {
+    background-color: rgb(230,72,72);
+    color: #fff;
+}
+.loading {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #cad3f5;
+    z-index: 5;
+    top: 0;
+    width: 100dvw;
+    height: 100dvh;
+}
+.box {
+    position: fixed;
+    background-color: #4563d7;
+    aspect-ratio: 1;
+    height: 3em;
+    margin: auto;
+    animation: loading 1.8s linear infinite;
+}

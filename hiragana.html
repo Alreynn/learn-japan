@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Learn Hiragana now!">
+    <link rel="stylesheet" href="styles.css">
+    <title>Learn Japan - Hiragana</title>
+</head>
+<body>
+    <header>
+        <h1 onclick="window.location.href='index.html'">Learn Japan</h1>
+    </header>
+    <main>
+        <div class="middle">
+            <h2 id="chosenHiragana"></h2>
+            <p>The letter above resembles...</p>
+            <div id="chooseRomaji"></div>
+        </div>
+    </main>
+    <div class="loading">
+        <div class="box"></div>
+    </div>
+    
+    <script src="hiragana.js" defer></script>
+    <script src="load.js"></script>
+</body>
+</html>
