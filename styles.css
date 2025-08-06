@@ -12,14 +12,13 @@
         width: 50%;
     }
 }
-
 * {
     margin: 0;
     padding: 0;
+    font-family: Sans-Serif;
 }
 body {
     background-color: #cdcbf0;
-    font-family: Sans-Serif;
 }
 header {
     background-color: #c8c8ee;
@@ -39,6 +38,14 @@ a {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.tablecontainer {
+    background-color: #e9e8ef;
+    border-radius: 8px;
+    box-shadow: 0 3px 5px gray;
+    padding: 5%;
+    margin: 3dvh auto;
+    width: fit-content;
+}
 h2 {
     font-size: 2em;
     text-align: center;
@@ -48,21 +55,21 @@ button {
     background-color: transparent;
     border: 1px solid #000;
     border-radius: 4px;
-    margin-top: 1em;
+    margin: 1em 0 0 0;
     font-size: 1em;
     padding: 12px;
 }
 button:active {
     background-color: #ccc;
 }
-#chooseRomaji button {
+div button {
     transition: all 0.5s;
 }
-#chooseRomaji button.isTrue {
+div button.isTrue {
     background-color: rgb(30,180,30);
     color: #fff;
 }
-#chooseRomaji button.isWrong {
+div button.isWrong {
     background-color: rgb(230,72,72);
     color: #fff;
 }
@@ -84,4 +91,20 @@ button:active {
     height: 3em;
     margin: auto;
     animation: loading 1.8s linear infinite;
+}
+.notif {
+    display: block;
+    background-color: rgba(0,0,0,0.500);
+    color: #fff;
+    opacity: 0;
+    padding: 8px;
+    border-radius: 4px;
+    position: fixed;
+    left: 50%;
+    bottom: 90px;
+    transform: translateX(-50%);
+    transition: all 0.5s;
+}
+.show {
+    opacity: 100%;
 }

@@ -18,12 +18,24 @@ const hiraganas = [
     "ま", "み", "む", "め", "も",
     "や",       "ゆ",       "よ",
     "ら", "り", "る", "れ", "ろ",
-    "わ", "を", "ん",
+    "わ",                   "を",
+    "ん",
     "が", "ぎ", "ぐ", "げ", "ご",
     "ざ", "じ", "ず", "ぜ", "ぞ",
     "だ", "ぢ", "づ", "で", "ど",
     "ば", "び", "ぶ", "べ", "ぼ",
-    "ぱ", "ぴ", "ぷ", "ぺ", "ぽ"
+    "ぱ", "ぴ", "ぷ", "ぺ", "ぽ",
+    "きゃ",       "きゅ",       "きょ",
+    "しゃ",       "しゅ",       "しょ",
+    "ちゃ",       "ちゅ",       "ちょ",
+    "にゃ",       "にゅ",       "にょ",
+    "ひゃ",       "ひゅ",       "ひょ",
+    "みゃ",       "みゅ",       "みょ",
+    "りゃ",       "りゅ",       "りょ",
+    "ぎゃ",       "ぎゅ",       "ぎょ",
+    "じゃ",       "じゅ",       "じょ",
+    "びゃ",       "びゅ",       "びょ",
+    "ぴゃ",       "ぴゅ",       "ぴょ"
 ]
 const randomizeHiragana = Math.floor(Math.random() * (hiraganas.length - 0));
 chosenHiragana.innerText = hiraganas[randomizeHiragana];
@@ -39,23 +51,40 @@ const romajiLetters = [
     "ma", "mi", "mu", "me", "mo",
     "ya",       "yu",       "yo",
     "ra", "ri", "ru", "re", "ro",
-    "wa", "(w)o", "n",
+    "wa",                   "wo",
+    "n",
     "ga", "gi", "gu", "ge", "go",
     "za", "ji", "zu", "ze", "zo",
     "da", "ji", "zu", "de", "do",
     "ba", "bi", "bu", "be", "bo",
     "pa", "pi", "pu", "pe", "po",
+    "kya",      "kyu",      "kyo",
+    "sha",      "shu",      "sho",
+    "cha",      "chu",      "cho",
+    "nya",      "nyu",      "nyo",
+    "hya",      "hyu",      "hyo",
+    "mya",      "myu",      "myo",
+    "rya",      "ryu",      "ryo",
+    "gya",      "gyu",      "gyo",
+    "ja",       "ju",       "jo",
+    "bya",      "byu",      "byo",
+    "pya",      "pyu",      "pyo"
 ]
 const chooseRomajiArray = [];
-let chosenRandomNum; // This is used for line 72.
+let chosenRandomNum; // This is used for line 96.
 function randomizer(arrayName, pushTo) {
     const random = Math.floor(Math.random() * (arrayName.length - 0) + 0);
     chosenRandomNum = random;
     const lists = arrayName[random];
     pushTo.push(lists);
 }
+function reload(timeout) {
+    setTimeout(() => {
+        window.location.reload();
+    }, timeout)
+}
 
-// Randomize number, and the number applies to romajiLetters, and push to chooseRomajiArray (line 50).
+// Randomize number, and the number applies to romajiLetters, and push to chooseRomajiArray (line 73).
 for (let i = 0; i < 4; i++) {
     randomizer(romajiLetters, chooseRomajiArray);
 }
@@ -81,12 +110,16 @@ finalArray.map((letter, index) => {
     if (finalArray[index] === romajiLetters[randomizeHiragana]) {
         button.addEventListener("click", () => {
             button.classList.add('isTrue');
-            window.location.reload();
+            reload(750);
         })
     } else {
         button.addEventListener("click", () => {
             button.classList.add('isWrong');
-            window.location.reload();
+            setTimeout(() => {
+                notif.classList.add('show');
+                notif.innerText = `The correct answer is ${romajiLetters[randomizeHiragana]}`;
+                reload(1000);
+            }, 300)
         })
     }
 })
